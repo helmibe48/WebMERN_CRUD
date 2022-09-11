@@ -1,0 +1,32 @@
+GET http://localhost:5000/datapenjualan
+
+###
+
+GET http://localhost:5000/datapenjualan/2
+
+### 
+POST http://localhost:5000/datapenjualan 
+Content-Type: application/json
+
+{
+    "name": "Pasta Gigi", 
+    "stok": "100", 
+    "terjual": "10",
+    "tanggal": "1-05-2021",
+    "jenis": "Konsumsi"
+}
+
+### 
+PATCH http://localhost:5000/datapenjualan/1 
+Content-Type: application/json
+
+{
+    "name": "Teh", 
+    "stok": "100", 
+    "terjual": "19",
+    "tanggal": "5-05-2021",
+    "jenis": "Konsumsi"
+}
+
+### 
+DELETE http://localhost:5000/datapenjualan/1
