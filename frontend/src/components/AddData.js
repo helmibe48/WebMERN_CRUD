@@ -13,14 +13,16 @@ const AddData = () => {
   const saveData = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:5000/datapenjualan", {
-        name,
-        stok,
-        terjual,
-        tanggal,
-        jenis,
-      });
-      navigate("/");
+      if (window.confirm('Simpan Data penjualan ?')) {
+       await axios.post("http://localhost:5000/datapenjualan", {
+          name,
+          stok,
+          terjual,
+          tanggal,
+          jenis,
+       });
+       navigate("/");
+    }
     } catch (error) {
       console.log(error);
     }

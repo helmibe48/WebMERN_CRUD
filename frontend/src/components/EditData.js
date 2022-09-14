@@ -19,14 +19,16 @@ const EditData = () => {
   const updateData = async (e) => {
     e.preventDefault();
     try {
-      await axios.patch(`http://localhost:5000/datapenjualan/${id}`, {
-        name,
-        stok,
-        terjual,
-        tanggal,
-        jenis,
-      });
-      navigate("/");
+      if (window.confirm('Ubah Data Penjualan ?')) {
+       await axios.patch(`http://localhost:5000/datapenjualan/${id}`, {
+          name,
+          stok,
+          terjual,
+          tanggal,
+          jenis,
+        });
+       navigate("/");
+      }
     } catch (error) {
       console.log(error);
     }
