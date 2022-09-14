@@ -1,8 +1,12 @@
-import Penjualan from "../models/PenjualanModel.js";
+import Penjualan from "../models/Penjualan.js";
 
 export const getDataPenjualan = async(req, res) =>{
     try {
-        const response = await Penjualan.findAll();
+        const response = await Penjualan.findAll({
+            // include: [{
+            //     model: Penjualan
+            // }]
+        });
         res.status(200).json(response);
     } catch (error) {
         console.log(error.message);

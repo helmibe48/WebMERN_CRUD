@@ -3,17 +3,17 @@ import db from "../config/Database.js";
 
 const {DataTypes} = Sequelize;
 
-const Penjualan = db.define('penjualan',{
-    name: DataTypes.STRING,
+const DataBarang = db.define('databarang',{
+    name: {type:DataTypes.STRING, primaryKey:true},
     stok: DataTypes.INTEGER,
-    terjual: DataTypes.INTEGER,
-    tanggal: DataTypes.STRING,
     jenis: DataTypes.STRING
 },{
-    freezeTableName:true
+    freezeTableName:true,
+    timestamps: false
 });
 
-export default Penjualan;
+DataBarang.removeAttribute('id');
+export default DataBarang;
 
 (async()=>{
     await db.sync();
